@@ -1,0 +1,16 @@
+version: '3'
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    stdin_open: true
+    tty: true
+    environment:
+      - WATCHPACK_POLLING=true
+    command: npm start
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public
